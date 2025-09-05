@@ -94,7 +94,25 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
 #loveIn img{display:inline-flex;background:none;width:130px;height:130px;transition:all .3s ease;} 
 #ket, #ketgeser, .halo{text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);font-size:17px;font-weight:700;color:white}
 #ket{margin-top:15px !important;font-size:12px;font-weight:400;opacity:.8}
-#ketgeser{position:absolute;margin-top:25px;font-size:13px;font-weight:700;transform:scale(0);opacity:0;transition:all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+#ketgeser{position:absolute;margin-top:25px;font-size:13px;font-weight:700;transform:scale(0);opacity:0;transition:all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);}
+
+/* Tambahan animasi untuk efek bounce */
+@keyframes bounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  70% { transform: scale(0.9); opacity: 0.9; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes slideIn {
+  0% { transform: translateX(-50px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes fadeInUp {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
 
 @keyframes leaves {0% {transform: scale(1.0);} 100% {transform: scale(.9);}}
 /* #loveIn{animation: leaves .7s ease-in-out infinite alternate;-webkit-animation: leaves 1s ease-in-out infinite alternate;} */
@@ -277,15 +295,24 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
   aktigeser=0;thisgeser=1;
   document.getElementById("bodyblur").onclick = function() {
     if(aktigeser==1){
+      // Efek visual feedback saat click
+      bodyblur.style.background = "rgba(255,255,255,0.1)";
+      setTimeout(() => {
+        bodyblur.style.background = "rgba(0,0,0,.3)";
+      }, 150);
+      
       // Tambahkan efek transisi untuk scroll
       document.getElementById('pergeseran').style.scrollBehavior = 'smooth';
       document.getElementById('pergeseran').scrollLeft += 300;
       
-      // Tambahkan efek fade untuk transisi slide
-      pergeseran.style.opacity = "0.7";
+      // Tambahkan efek slide dengan scale dan opacity
+      pergeseran.style.transform = "scale(0.95)";
+      pergeseran.style.opacity = "0.6";
       setTimeout(() => {
+        pergeseran.style.transform = "scale(1)";
         pergeseran.style.opacity = "1";
-      }, 200);
+        pergeseran.style.transition = "all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
+      }, 100);
       
       hsementara();
       if(thisgeser>totalPesan){
@@ -296,15 +323,15 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
     }
   }
   function hsementara(){
-    // Transisi keluar untuk teks "Klik untuk Geser!"
-    ketgeser.style="position:relative;transform:scale(0.8);opacity:0;transition:all 0.4s ease;";
-    thisgeser+=1;aktigeser=0;setTimeout(munculkembali,600)
+    // Transisi keluar untuk teks "Klik untuk Geser!" dengan efek bounce
+    ketgeser.style="position:relative;transform:scale(0.3) rotate(10deg);opacity:0;transition:all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);";
+    thisgeser+=1;aktigeser=0;setTimeout(munculkembali,700)
   }
   function munculkembali(){
     if(thisgeser<=totalPesan){
-      // Transisi masuk untuk teks "Klik untuk Geser!"
-      ketgeser.style="position:relative;transform:scale(1);opacity:.8;transition:all 0.5s ease;";
-      if(thisgeser==totalPesan){ketgeser.innerHTML="Klik untuk Lanjut!"}
+      // Transisi masuk untuk teks "Klik untuk Geser!" dengan bounce effect
+      ketgeser.style="position:relative;transform:scale(1) rotate(0deg);opacity:.8;transition:all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);animation: bounceIn 0.6s ease-out;";
+      if(thisgeser==totalPesan){ketgeser.innerHTML="Klik untuk Lanjut! ✨"}
       aktigeser=1;
     }
   }
@@ -341,11 +368,24 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
   function fthilang(){fotostiker.style="display:inline-flex;opacity:0;transition:all .7s ease;transform:scale(0)";if(ftganti<=11){setTimeout(ftmuncul,250)} if(ftganti>=12){wallpaper.style="opacity:.7;transform: scale(2);";}}
   function jjfoto(){fotostiker.style.animation="rto .8s infinite alternate";}
   
-  function pgmuncul(){pergeseran.style="position:relative;margin-top:5vh;opacity:1;visibility:visible;transform:scale(1);";setTimeout(munculkembali,500)}
-  function bqmuncul(){bq.style = "position:relative;opacity:1;visibility:visible;transform: scale(1);margin-top:10px";wallpaper.style="opacity:.5;transform: scale(2);";setTimeout(munculkolom,300);fthilang();ftganti=0;}
-  function bqhilang(){wallpaper.style="transform: scale(2);";bodyblur.style="opacity:.3";bq.style = "position:relative;transition:all .7s ease;";}
+  function pgmuncul(){
+    pergeseran.style="position:relative;margin-top:5vh;opacity:1;visibility:visible;transform:scale(1);transition:all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);animation: fadeInUp 0.8s ease-out;";
+    setTimeout(munculkembali,500)
+  }
+  function bqmuncul(){
+    bq.style = "position:relative;opacity:1;visibility:visible;transform: scale(1);margin-top:10px;transition:all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);animation: slideIn 0.8s ease-out;";
+    wallpaper.style="opacity:.5;transform: scale(2);transition:all 1s ease;";
+    setTimeout(munculkolom,300);fthilang();ftganti=0;
+  }
+  function bqhilang(){
+    wallpaper.style="transform: scale(2);transition:all 0.8s ease;";
+    bodyblur.style="opacity:.3;transition:all 0.5s ease;";
+    bq.style = "position:relative;transition:all .7s ease;";
+  }
   
-  function tombol(){Tombol.style="opacity:1;transform: scale(1);";}
+  function tombol(){
+    Tombol.style="opacity:1;transform: scale(1);transition:all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);animation: bounceIn 0.6s ease-out;";
+  }
   
   document.getElementById("By").onclick = function() {
     if(fungsi==1){Tombol.style="";otomatis();setTimeout(aktipesan6,400);fungsi=0;} 
