@@ -53,7 +53,7 @@ body::before{content:"Instagram: @musgun.it";color:white;opacity:0.8;font-size:1
 @keyframes rtf{from {transform: rotate(0deg);} to {transform: rotate(360deg);}} @keyframes rt{from {transform: scale(.9);/* transform: rotate(-5deg); */} to {transform: scale(1);/* transform: rotate(5deg); */}}
 @keyframes kont{0%  {left:-1px; top:-3px;} 50% {left:1px; top:3px;} 100% {left:-1px; top:-3px;}}
 
-blockquote{position:absolute;opacity:0;visibility:hidden;margin-top:100px;/*background:var(--warna-bg);border: 1px solid rgba(255, 255, 255, 0.5);border-radius:var(--bingkai);box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;*/transform: scale(.1);transition:all .7s ease;margin-top:120px;margin-left:0;margin-right:0;color:var(--tombol-teks);text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);/*backdrop-filter:blur(2px);*/}
+blockquote{position:absolute;opacity:0;visibility:hidden;margin-top:100px;/*background:var(--warna-bg);border: 1px solid rgba(255, 255, 255, 0.5);border-radius:var(--bingkai);box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;*/transform: scale(.1);transition:all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);margin-top:120px;margin-left:0;margin-right:0;color:var(--tombol-teks);text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);/*backdrop-filter:blur(2px);*/}
 blockquote{width:400px;text-align:center;line-height:1.3em;padding:0}
 /*blockquote::before{content:attr(data-text);opacity:.7;font-family: sans-serif;position:absolute;left:8px;top:8px;min-width:15px;font-size:16px;text-align:center}*/
 blockquote p{font-size:15px;font-weight:400;line-height:1.5em;transition:all .5s ease;margin-left:25px;margin-right:25px}
@@ -66,16 +66,17 @@ blockquote > #pesanAkhir, blockquote > #pesanAkhir2, blockquote > #pesanAkhir3{t
 blockquote p:not(#halo, #opsL, #kalimat, #pesan3, .gaya2, .gaya4){display:none;}
 blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0;margin-top:24px;color:white;opacity:0;}
 
-#pergeseran{position:absolute;margin-top:120px;opacity:0;visibility:hidden;transform:scale(0);transition:all 1s ease;display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:flex-start;max-width:500px;padding:0 20px; overflow-y:hidden;overflow-x:hidden;scroll-behavior:smooth;scroll-snap-type:x mandatory; -ms-overflow-style:none;-webkit-overflow-scrolling:touch}
-#pergeseran p{background:var(--warna-bg);color:white;text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);border:1px solid #fefefeba;border-radius:20px;padding:8px;display:flex;flex-wrap:nowrap;text-align:center;line-height:1.4em;align-items:center;justify-content:center;flex-shrink:0; width:90%;height:170px;margin:0 15px 0 0; scroll-snap-align:center}
+#pergeseran{position:absolute;margin-top:120px;opacity:0;visibility:hidden;transform:scale(0);transition:all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);display:flex;flex-wrap:nowrap;align-items:flex-start;justify-content:flex-start;max-width:500px;padding:0 20px; overflow-y:hidden;overflow-x:hidden;scroll-behavior:smooth;scroll-snap-type:x mandatory; -ms-overflow-style:none;-webkit-overflow-scrolling:touch}
+#pergeseran p{background:var(--warna-bg);color:white;text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);border:1px solid #fefefeba;border-radius:20px;padding:8px;display:flex;flex-wrap:nowrap;text-align:center;line-height:1.4em;align-items:center;justify-content:center;flex-shrink:0; width:90%;height:170px;margin:0 15px 0 0; scroll-snap-align:center;transition:all 0.3s ease;}
 #pergeseran > *:last-child{margin-right:0} #pergeseran:after{content:'';display:block;flex-shrink:0; align-self:stretch;padding-left:20px}
 #pergeseran p b{display:block;}
 #pergeseran p b span{font-size:15px;font-weight:700;}
 #pergeseran p b img{width:80px;height:80px;margin-bottom:20px;}
 #fotolove{border-radius:50%;transition:all .3s ease;} #fotolove:hover{transform: scale(.8);}
 
-#Tombol{position:relative;opacity:0;margin:0;display:flex;align-items:left;list-style:none;transform: scale(.1);transition:all 1s ease;}
-#Tombol a{cursor:pointer;display:inline-flex;align-items:center; margin:0;margin:12px 0 12px 0;transition:all .2s ease;padding:10px;outline:0;border: .7px solid #fefefeba;border-radius:15px;line-height:15px;background:rgba(0,0,0,.2);color:var(--tombol-teks);font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;z-index:1}
+#Tombol{position:relative;opacity:0;margin:0;display:flex;align-items:left;list-style:none;transform: scale(.1);transition:all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+#Tombol a{cursor:pointer;display:inline-flex;align-items:center; margin:0;margin:12px 0 12px 0;transition:all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);padding:10px;outline:0;border: .7px solid #fefefeba;border-radius:15px;line-height:15px;background:rgba(0,0,0,.2);color:var(--tombol-teks);font-size:13px;font-weight:700;white-space:nowrap;overflow:hidden;box-shadow: rgba(255,255,255, 0.3) 0px 7px 29px 0px;z-index:1}
+#Tombol a:hover{transform: scale(1.05);background:rgba(0,0,0,.4);box-shadow: rgba(255,255,255, 0.4) 0px 10px 35px 0px;}
 #Bn{margin:12px 0 12px 12px !important}
 
 #Content{animation-name:none;animation-duration: 3s;animation-iteration-count: infinite;position:relative;opacity:0;margin-top:50px;width:100%;height:180px;transition:all .7s ease;}
@@ -93,17 +94,17 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
 #loveIn img{display:inline-flex;background:none;width:130px;height:130px;transition:all .3s ease;} 
 #ket, #ketgeser, .halo{text-shadow: 0px 2px 2px rgba(0, 0, 0, .8);font-size:17px;font-weight:700;color:white}
 #ket{margin-top:15px !important;font-size:12px;font-weight:400;opacity:.8}
-#ketgeser{position:absolute;margin-top:25px;font-size:13px;font-weight:700;transform:scale(0);opacity:0;transition:all .7s ease;}
+#ketgeser{position:absolute;margin-top:25px;font-size:13px;font-weight:700;transform:scale(0);opacity:0;transition:all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);}
 
 @keyframes leaves {0% {transform: scale(1.0);} 100% {transform: scale(.9);}}
 /* #loveIn{animation: leaves .7s ease-in-out infinite alternate;-webkit-animation: leaves 1s ease-in-out infinite alternate;} */
 .lovein{background:#fff;border-radius:50%;padding:10px;font-size:30px;display:flex;align-items:center;text-align:center;justify-content:center;transition:all .3s ease;}
 .lovein:hover{transform: scale(.9);}
 
-#kolombaru{position:absolute;opacity:0;display:flex;transform:scale(.1);transition:all 1s ease;align-items:center;text-align:center;justify-content:center;z-index:1;}
+#kolombaru{position:absolute;opacity:0;display:flex;transform:scale(.1);transition:all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94);align-items:center;text-align:center;justify-content:center;z-index:1;}
 #kolombaru > li{margin:8px;padding:0;list-style-type: none;}
-#kolombaru li{opacity:.8;display:flex;font-size:28px}
-#kolombaru li:hover{opacity:.5;transform: scale(1.15);transition:all .3s ease;}
+#kolombaru li{opacity:.8;display:flex;font-size:28px;transition:all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);}
+#kolombaru li:hover{opacity:.5;transform: scale(1.15);}
 
 .kolomrange{padding:0 30px;background:none;position:absolute;opacity:0;transform: scale(0);z-index:1;display:none;transition:all 1s ease;align-items:center;}
 .kolomrange .inirange{width:100%;height:40px;margin-right:15px;display:flex;align-items:center;text-align:center;justify-content:center;}
@@ -276,22 +277,33 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
   aktigeser=0;thisgeser=1;
   document.getElementById("bodyblur").onclick = function() {
     if(aktigeser==1){
+      // Tambahkan efek transisi untuk scroll
+      document.getElementById('pergeseran').style.scrollBehavior = 'smooth';
       document.getElementById('pergeseran').scrollLeft += 300;
+      
+      // Tambahkan efek fade untuk transisi slide
+      pergeseran.style.opacity = "0.7";
+      setTimeout(() => {
+        pergeseran.style.opacity = "1";
+      }, 200);
+      
       hsementara();
       if(thisgeser>totalPesan){
-        wallpaper.style="transform: scale(2);";
-        pergeseran.style = "position:relative;transition:all .7s ease;";
-        setTimeout(aksiakhir,500);
+        wallpaper.style="transform: scale(2); transition: all 1s ease;";
+        pergeseran.style = "position:relative;transition:all 1s ease;opacity:0;transform:scale(0.95);";
+        setTimeout(aksiakhir,800);
       }
     }
   }
   function hsementara(){
-    ketgeser.style="position:relative;";
-    thisgeser+=1;aktigeser=0;setTimeout(munculkembali,500)
+    // Transisi keluar untuk teks "Klik untuk Geser!"
+    ketgeser.style="position:relative;transform:scale(0.8);opacity:0;transition:all 0.4s ease;";
+    thisgeser+=1;aktigeser=0;setTimeout(munculkembali,600)
   }
   function munculkembali(){
     if(thisgeser<=totalPesan){
-      ketgeser.style="position:relative;transform:scale(1);opacity:.8";
+      // Transisi masuk untuk teks "Klik untuk Geser!"
+      ketgeser.style="position:relative;transform:scale(1);opacity:.8;transition:all 0.5s ease;";
       if(thisgeser==totalPesan){ketgeser.innerHTML="Klik untuk Lanjut!"}
       aktigeser=1;
     }
