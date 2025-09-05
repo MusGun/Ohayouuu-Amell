@@ -40,10 +40,74 @@
 --gaya-font3: 'Nerko One', cursive;
 }
 @keyframes fanim {0% {background-position: 0% 0%;}25% {background-position: 100% 100%;} 50% {background-position: 0% 100%;} 75% {background-position: 50% 50%;} 100% {background-position: 0% 0%;}}
-body{background-color:#000;font-family:var(--gaya-font);padding: 20px 25px;-webkit-user-select: none; -ms-user-select: none; user-select: none;} a{text-decoration:none;}
+body{
+  background-color:#000;
+  font-family:var(--gaya-font);
+  padding: 20px 25px;
+  -webkit-user-select: none; 
+  -ms-user-select: none; 
+  user-select: none;
+  min-height:100vh;
+  overflow-x:hidden;
+} 
+
+/* Responsive body padding */
+@media screen and (max-width: 480px) {
+  body {
+    padding: 15px 20px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  body {
+    padding: 18px 22px;
+  }
+}
+
+a{text-decoration:none;}
 body::before{content:"Instagram: @musgun.it";color:white;opacity:0.8;font-size:10px;position:fixed;bottom:25px;right:25px;z-index:2}
 #bodyblur{opacity:.3;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.3);transition:all 1s ease;} 
-#wallpaper{width:100%;height:100%;transform: scale(2);transition:all 1.7s ease;}
+#wallpaper{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  transform: scale(2);
+  transition:all 1.7s ease;
+}
+
+/* Responsive wallpaper untuk mobile dan desktop */
+@media screen and (max-width: 768px) {
+  #wallpaper {
+    object-fit:cover;
+    object-position:center center;
+    width:100vw;
+    height:100vh;
+    min-height:100vh;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  #wallpaper {
+    object-fit:cover;
+    object-position:center center;
+    width:100vw;
+    height:100vh;
+    min-width:100vw;
+    min-height:100vh;
+  }
+}
+
+/* Untuk landscape mobile */
+@media screen and (max-width: 768px) and (orientation: landscape) {
+  #wallpaper {
+    object-fit:cover;
+    object-position:center center;
+    width:100vw;
+    height:100vh;
+  }
+}
+
 #beneranblur{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.3);-webkit-backdrop-filter:blur(0px); backdrop-filter:blur(0px);transition:all 3s ease;}
 
 @keyframes jj{0%  {transform: scale(1.1);} 50% {transform: scale(1.2);} 100% {transform: scale(1.1);}}
@@ -79,7 +143,32 @@ blockquote > #opsL{text-align:right;font-size:12px;font-weight:400;line-height:0
 #Tombol a:hover{transform: scale(1.05);background:rgba(0,0,0,.4);box-shadow: rgba(255,255,255, 0.4) 0px 10px 35px 0px;}
 #Bn{margin:12px 0 12px 12px !important}
 
-#Content{animation-name:none;animation-duration: 3s;animation-iteration-count: infinite;position:relative;opacity:0;margin-top:50px;width:100%;height:180px;transition:all .7s ease;}
+#Content{
+  animation-name:none;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  position:relative;
+  opacity:0;
+  margin-top:50px;
+  width:100%;
+  height:180px;
+  transition:all .7s ease;
+}
+
+/* Responsive Content adjustments */
+@media screen and (max-width: 480px) {
+  #Content {
+    margin-top:30px;
+    height:160px;
+  }
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  #Content {
+    margin-top:40px;
+    height:170px;
+  }
+}
 #Content > *{display:flex;align-items:center;text-align:center;justify-content:center;margin-top:1px;}
 .kumpulanstiker > img{display:none;background: rgba(255, 255, 255, 0.5);box-shadow: 0 4px 30px rgba(255,255,255, 0.3);backdrop-filter: blur(5px);-webkit-backdrop-filter: blur(5px);border: 1px solid rgba(255, 255, 255, 0.3);border-radius: 50%;padding:10px;width:100px;height:100px;margin-top:20px;}
 #ftAwal > img{width:130px;height:130px;margin-bottom:50px;}
